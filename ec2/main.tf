@@ -17,7 +17,7 @@ resource "aws_instance" "instance" {
   ami                    = data.aws_ami.aws_ami.id
   instance_type          = var.instance_type
 
-  security_groups = [aws_security_group.security_group.id]
+  vpc_security_group_ids = [aws_security_group.security_group.id]
      
 
   tags = {
