@@ -1,5 +1,3 @@
-
-
 data "aws_ami" "aws_ami" {
   most_recent = true
   owners      = ["amazon"] # Specify the owner (e.g., "amazon" for official AMIs)
@@ -15,32 +13,18 @@ data "aws_ami" "aws_ami" {
   }
 }
 
-
-
-
 resource "aws_instance" "instance" {
   ami                    = data.aws_ami.aws_ami.id
   instance_type          = var.instance_type
 
   security_groups = [ aws_security_group.security_group.id ]
-  
-  user_data = <<-EOF
-    #!/bin/bash
-    sudo yum update -y
-    sudo yum install -y httpd
-    sudo systemctl start httpd
-    sudo systemctl enable httpd
-    echo "Hello from Instance" > /var/www/html/index.html
-
-EOF   
+     
 
   tags = {
     Name = "My-Server"
   }
 
 }
-
-
 
 resource "aws_security_group" "security_group" {
   name   = "security_group"
