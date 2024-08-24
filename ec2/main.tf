@@ -23,7 +23,7 @@ resource "aws_instance" "instance" {
   tags = {
     Name = "My-Server"
   }
-
+    depends_on = [aws_security_group.security_group]
 }
 
 resource "aws_security_group" "security_group" {

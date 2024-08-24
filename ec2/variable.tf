@@ -1,6 +1,17 @@
-variable "instance_type" {}
-variable "port" {}
-variable "protocol" {}
+variable "instance_type" {
+  type    = string
+  default = "t2.micro"
+}
+variable "port" {
+  type    = number
+  default = 22
+}
+variable "protocol" {
+  type    = string
+  default = "tcp"
+}
+
 variable "cidr_blocks" {
-    default = ["0.0.0.0/0"]
+  type    = list(string)
+  default = ["0.0.0.0/0"]
 }
