@@ -18,10 +18,16 @@ resource "aws_instance" "instance" {
   instance_type          = var.instance_type
 
   vpc_security_group_ids = [aws_security_group.security_group.id]
+
+   root_block_device {
+    volume_size = var.root_volume_size
+  }
+
+  user_data = var.userdata_script
      
 
   tags = {
-    Name = "My-Server"
+    Name = var.instance_name
   }
     depends_on = [aws_security_group.security_group]
 }
