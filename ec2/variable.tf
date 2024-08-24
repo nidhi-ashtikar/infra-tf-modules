@@ -1,7 +1,5 @@
-variable "instance_type" {
-  type    = string
-  default = "t2.micro"
-}
+
+
 variable "port" {
   type    = number
   default = 22
