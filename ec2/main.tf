@@ -13,9 +13,9 @@ data "aws_ami" "aws_ami" {
   }
 }
 
-provider "aws" {
-  region = var.region
-}
+# provider "aws" {
+#   region = var.region
+# }
 
 
 resource "aws_instance" "instance" {
