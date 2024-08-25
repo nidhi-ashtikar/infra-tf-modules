@@ -25,15 +25,3 @@ variable "instance_type" {
   type        = string
   default = "t2.micro"
 }
-
-variable "root_volume_size" {
-  description = "The size of the root volume in GB"
-  type        = number
-  default = 8
-}
-
-variable "userdata_script" {
-  description = "User data script to configure the instance"
-  type        = string
-  default     = ""
-}

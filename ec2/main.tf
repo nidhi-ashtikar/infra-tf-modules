@@ -16,13 +16,11 @@ data "aws_ami" "aws_ami" {
 resource "aws_instance" "instance" {
   ami                    = data.aws_ami.aws_ami.id
   instance_type          = var.instance_type
-  user_data = var.userdata_script
+  
 
   vpc_security_group_ids = [aws_security_group.security_group.id]
 
-   root_block_device {
-    volume_size = var.root_volume_size
-  }
+   
   
   tags = {
     Name = var.instance_name
